@@ -5,6 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Hello Austin, Lorenzo, and Alberto!</Text>
+      <Text>This is from the Blaine branch!</Text>
     </View>
   );
 }
