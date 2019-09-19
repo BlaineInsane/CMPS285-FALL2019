@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarterProject.Api.Data;
 
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190919031256_Add_LoginTableAndStudentTable")]
+    partial class Add_LoginTableAndStudentTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,8 +88,8 @@ namespace StarterProject.Api.Migrations
                             Email = "admin@admin.com",
                             FirstName = "Seeded-Admin-FirstName",
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 192, 173, 58, 180, 55, 219, 47, 4, 129, 142, 249, 91, 21, 226, 152, 185, 150, 200, 24, 74 },
-                            PasswordSalt = new byte[] { 53, 235, 65, 194, 85, 207, 110, 96, 142, 132, 89, 163, 48, 214, 176, 130 },
+                            PasswordHash = new byte[] { 197, 57, 9, 43, 234, 252, 167, 83, 128, 87, 50, 1, 231, 154, 73, 127, 159, 145, 52, 105 },
+                            PasswordSalt = new byte[] { 41, 2, 199, 149, 164, 85, 127, 171, 118, 5, 160, 167, 99, 146, 106, 134 },
                             Role = "Admin",
                             Username = "admin"
                         });

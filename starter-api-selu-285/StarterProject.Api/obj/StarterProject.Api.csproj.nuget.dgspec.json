@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\BackEnd\\starter-api-selu-285\\StarterProject.Api\\StarterProject.Api.csproj": {}
+    "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\starter-api-selu-285\\StarterProject.Api\\StarterProject.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\BackEnd\\starter-api-selu-285\\StarterProject.Api\\StarterProject.Api.csproj": {
+    "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\starter-api-selu-285\\StarterProject.Api\\StarterProject.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\BackEnd\\starter-api-selu-285\\StarterProject.Api\\StarterProject.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\starter-api-selu-285\\StarterProject.Api\\StarterProject.Api.csproj",
         "projectName": "StarterProject.Api",
-        "projectPath": "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\BackEnd\\starter-api-selu-285\\StarterProject.Api\\StarterProject.Api.csproj",
+        "projectPath": "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\starter-api-selu-285\\StarterProject.Api\\StarterProject.Api.csproj",
         "packagesPath": "C:\\Users\\Blaine\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\BackEnd\\starter-api-selu-285\\StarterProject.Api\\obj\\",
+        "outputPath": "C:\\Users\\Blaine\\Desktop\\Git\\cmps285-fall2019-section01-group4\\starter-api-selu-285\\StarterProject.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
