@@ -29,6 +29,10 @@ namespace StarterProject.Api
         
         public void ConfigureServices(IServiceCollection services)
         {
+            var connection = @"Server = localhost\SQLEXPRESS; Database = DegreeProgressTracker; Trusted_Connection = True; ConnectRetryCount = 0";
+            services.AddDbContext<DataContext>
+                (options => options.UseSqlServer(connection));
+
             services.AddCors();
             services.AddMvc(options =>
                 {

@@ -728,4 +728,18 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
+### Database ###
+*.accdb
+*.db
+*.dbf
+*.mdb
+*.pdb
+*.sqlite3
+
 # End of https://www.gitignore.io/api/reactnative,visualstudio,androidstudio
+
+*.applicationhost.config
+starter-api-selu-285/.vs/StarterProject.Api/config/applicationhost.config
+starter-api-selu-285/.vs/StarterProject.Api/config/applicationhost.config
+starter-api-selu-285/.vs/StarterProject.Api/config
+DegreeProgressTracker/.idea/workspace.xml
