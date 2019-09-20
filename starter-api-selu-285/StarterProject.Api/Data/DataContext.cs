@@ -14,6 +14,11 @@ namespace StarterProject.Api.Data
 
         // Declare tables here
         public DbSet<User> Users { get; set; }
+        public DbSet<UserClass> UsersClasses { get; set; }
+        public DbSet<Class> Classes { get; set; }       
+        public DbSet<ClassConcentration> ClassesConcentrations { get; set; }
+        public DbSet<Concentration> Concentrations { get; set; }
+        public DbSet<Major> Majors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarterProject.Api.Data;
 
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190920025511_Add_ClassesConcentrationsTable")]
+    partial class Add_ClassesConcentrationsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,34 +55,6 @@ namespace StarterProject.Api.Migrations
                     b.ToTable("ClassesConcentrations");
                 });
 
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Concentration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ConcentrationName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Concentrations");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Major", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ConcentrationId");
-
-                    b.Property<string>("MajornName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Majors");
-                });
-
             modelBuilder.Entity("StarterProject.Api.Features.Users.User", b =>
                 {
                     b.Property<int>("Id")
@@ -115,8 +89,8 @@ namespace StarterProject.Api.Migrations
                             FirstName = "Seeded-Admin-FirstName",
                             GPA = 0f,
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 153, 125, 192, 25, 77, 139, 50, 150, 172, 236, 117, 214, 148, 50, 125, 194, 240, 70, 219, 179 },
-                            PasswordSalt = new byte[] { 47, 63, 110, 25, 245, 25, 190, 25, 232, 42, 126, 139, 28, 92, 178, 113 },
+                            PasswordHash = new byte[] { 94, 194, 169, 122, 122, 160, 158, 203, 26, 205, 179, 13, 165, 60, 203, 38, 93, 101, 95, 189 },
+                            PasswordSalt = new byte[] { 77, 236, 79, 230, 16, 182, 219, 52, 194, 242, 186, 170, 95, 228, 204, 158 },
                             Role = "Admin",
                             Username = "admin"
                         });

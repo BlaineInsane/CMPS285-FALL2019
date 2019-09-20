@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarterProject.Api.Data;
 
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190920031353_Add_ConcentrationsTable")]
+    partial class Add_ConcentrationsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,21 +68,6 @@ namespace StarterProject.Api.Migrations
                     b.ToTable("Concentrations");
                 });
 
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Major", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ConcentrationId");
-
-                    b.Property<string>("MajornName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Majors");
-                });
-
             modelBuilder.Entity("StarterProject.Api.Features.Users.User", b =>
                 {
                     b.Property<int>("Id")
@@ -115,8 +102,8 @@ namespace StarterProject.Api.Migrations
                             FirstName = "Seeded-Admin-FirstName",
                             GPA = 0f,
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 153, 125, 192, 25, 77, 139, 50, 150, 172, 236, 117, 214, 148, 50, 125, 194, 240, 70, 219, 179 },
-                            PasswordSalt = new byte[] { 47, 63, 110, 25, 245, 25, 190, 25, 232, 42, 126, 139, 28, 92, 178, 113 },
+                            PasswordHash = new byte[] { 193, 160, 38, 182, 201, 134, 54, 32, 39, 214, 149, 226, 252, 252, 171, 32, 71, 119, 108, 6 },
+                            PasswordSalt = new byte[] { 132, 221, 81, 176, 206, 91, 229, 59, 120, 83, 161, 185, 54, 129, 21, 53 },
                             Role = "Admin",
                             Username = "admin"
                         });

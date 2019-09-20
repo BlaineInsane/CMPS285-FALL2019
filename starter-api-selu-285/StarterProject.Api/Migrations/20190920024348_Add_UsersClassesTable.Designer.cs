@@ -3,83 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarterProject.Api.Data;
 
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190920024348_Add_UsersClassesTable")]
+    partial class Add_UsersClassesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Class", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClassDescription");
-
-                    b.Property<string>("ClassName");
-
-                    b.Property<int>("CreditHours");
-
-                    b.Property<string>("Prerequisite");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Classes");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.ClassConcentration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ClassId");
-
-                    b.Property<int>("ConcentrationId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ClassesConcentrations");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Concentration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ConcentrationName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Concentrations");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Major", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ConcentrationId");
-
-                    b.Property<string>("MajornName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Majors");
-                });
 
             modelBuilder.Entity("StarterProject.Api.Features.Users.User", b =>
                 {
@@ -115,8 +55,8 @@ namespace StarterProject.Api.Migrations
                             FirstName = "Seeded-Admin-FirstName",
                             GPA = 0f,
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 153, 125, 192, 25, 77, 139, 50, 150, 172, 236, 117, 214, 148, 50, 125, 194, 240, 70, 219, 179 },
-                            PasswordSalt = new byte[] { 47, 63, 110, 25, 245, 25, 190, 25, 232, 42, 126, 139, 28, 92, 178, 113 },
+                            PasswordHash = new byte[] { 98, 84, 80, 37, 158, 159, 215, 104, 252, 194, 202, 59, 183, 119, 228, 204, 107, 92, 183, 197 },
+                            PasswordSalt = new byte[] { 212, 150, 32, 100, 209, 145, 0, 67, 40, 69, 181, 61, 193, 158, 27, 65 },
                             Role = "Admin",
                             Username = "admin"
                         });

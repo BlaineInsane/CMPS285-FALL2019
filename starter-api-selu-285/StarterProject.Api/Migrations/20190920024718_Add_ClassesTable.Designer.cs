@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarterProject.Api.Data;
 
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190920024718_Add_ClassesTable")]
+    partial class Add_ClassesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,49 +38,6 @@ namespace StarterProject.Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Classes");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.ClassConcentration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ClassId");
-
-                    b.Property<int>("ConcentrationId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ClassesConcentrations");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Concentration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ConcentrationName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Concentrations");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Major", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ConcentrationId");
-
-                    b.Property<string>("MajornName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Majors");
                 });
 
             modelBuilder.Entity("StarterProject.Api.Features.Users.User", b =>
@@ -115,8 +74,8 @@ namespace StarterProject.Api.Migrations
                             FirstName = "Seeded-Admin-FirstName",
                             GPA = 0f,
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 153, 125, 192, 25, 77, 139, 50, 150, 172, 236, 117, 214, 148, 50, 125, 194, 240, 70, 219, 179 },
-                            PasswordSalt = new byte[] { 47, 63, 110, 25, 245, 25, 190, 25, 232, 42, 126, 139, 28, 92, 178, 113 },
+                            PasswordHash = new byte[] { 50, 38, 125, 159, 240, 180, 246, 63, 108, 212, 6, 173, 223, 92, 206, 163, 192, 160, 58, 137 },
+                            PasswordSalt = new byte[] { 132, 204, 68, 199, 30, 133, 144, 175, 220, 39, 163, 62, 105, 231, 34, 82 },
                             Role = "Admin",
                             Username = "admin"
                         });
