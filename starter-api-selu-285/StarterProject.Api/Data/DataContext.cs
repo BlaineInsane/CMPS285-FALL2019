@@ -12,7 +12,7 @@ namespace StarterProject.Api.Data
         {
         }
 
-        // Declare tables here
+        // Declare tables here with the form: <singuler name of table> Plural name of table
         public DbSet<User> Users { get; set; }
         public DbSet<UserClass> UsersClasses { get; set; }
         public DbSet<Class> Classes { get; set; }       
@@ -23,6 +23,30 @@ namespace StarterProject.Api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Declare relationships here (xoxo)
+            modelBuilder.Entity<UserClass>() // 1(User) to many(UserClass)
+                .HasOne(x => x.User)
+                .WithMany(x => x.UsersClasses)
+                .HasForeignKey(x => x.UserId);
+            modelBuilder.Entity<UserClass>() // 1(class) to many(UserClass)
+                .HasOne(x => x.Class)
+                .WithMany(x => x.UsersClasses)
+                .HasForeignKey(x => x.ClassId);
+
+            modelBuilder.Entity<ClassConcentration>() // 1(Class) to many(ClassConcentration)
+                .HasOne(x => x.Class)
+                .WithMany(x => x.ClassesConcentrations)
+                .HasForeignKey(x => x.ClassId);
+            modelBuilder.Entity<ClassConcentration>() // 1(Concentration) to many(ClassConcentration)
+                .HasOne(x => x.Concentration)
+                .WithMany(x => x.ClassesConcentrations)
+                .HasForeignKey(x => x.ConcentrationId);
+
+            modelBuilder.Entity<Concentration>() // 1(Major) to many(Concentration)
+                .HasOne(x => x.Major)
+                .WithMany(x => x.Concentrations)
+                .HasForeignKey(x => x.MajorId);
+
+            // End of relationships 
 
             var passwordHasher = new PasswordHash("admin");
             modelBuilder.Entity<User>().HasData(
