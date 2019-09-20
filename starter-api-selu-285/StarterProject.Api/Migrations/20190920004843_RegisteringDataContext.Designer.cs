@@ -10,8 +10,8 @@ using StarterProject.Api.Data;
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190919032723_Update_connectionString")]
-    partial class Update_connectionString
+    [Migration("20190920004843_RegisteringDataContext")]
+    partial class RegisteringDataContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,42 +20,6 @@ namespace StarterProject.Api.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Login", b =>
-                {
-                    b.Property<int>("LoginId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("LoginName");
-
-                    b.Property<byte[]>("PasswordHash");
-
-                    b.Property<byte[]>("PasswordSalt");
-
-                    b.Property<int>("StudentId");
-
-                    b.HasKey("LoginId");
-
-                    b.ToTable("Logins");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Student", b =>
-                {
-                    b.Property<int>("StudentId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<float>("GPA");
-
-                    b.Property<string>("LastName");
-
-                    b.HasKey("StudentId");
-
-                    b.ToTable("Students");
-                });
 
             modelBuilder.Entity("StarterProject.Api.Features.Users.User", b =>
                 {
@@ -88,8 +52,8 @@ namespace StarterProject.Api.Migrations
                             Email = "admin@admin.com",
                             FirstName = "Seeded-Admin-FirstName",
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 192, 173, 58, 180, 55, 219, 47, 4, 129, 142, 249, 91, 21, 226, 152, 185, 150, 200, 24, 74 },
-                            PasswordSalt = new byte[] { 53, 235, 65, 194, 85, 207, 110, 96, 142, 132, 89, 163, 48, 214, 176, 130 },
+                            PasswordHash = new byte[] { 193, 41, 230, 209, 207, 133, 68, 35, 44, 238, 247, 161, 119, 57, 162, 155, 100, 23, 220, 230 },
+                            PasswordSalt = new byte[] { 82, 206, 12, 140, 142, 176, 152, 110, 1, 142, 158, 14, 197, 47, 222, 66 },
                             Role = "Admin",
                             Username = "admin"
                         });

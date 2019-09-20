@@ -10,8 +10,8 @@ using StarterProject.Api.Data;
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190919031256_Add_LoginTableAndStudentTable")]
-    partial class Add_LoginTableAndStudentTable
+    [Migration("20190920005715_Update_UserTable_AddGpaColumn")]
+    partial class Update_UserTable_AddGpaColumn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,42 +20,6 @@ namespace StarterProject.Api.Migrations
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Login", b =>
-                {
-                    b.Property<int>("LoginId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("LoginName");
-
-                    b.Property<byte[]>("PasswordHash");
-
-                    b.Property<byte[]>("PasswordSalt");
-
-                    b.Property<int>("StudentId");
-
-                    b.HasKey("LoginId");
-
-                    b.ToTable("Logins");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Student", b =>
-                {
-                    b.Property<int>("StudentId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<float>("GPA");
-
-                    b.Property<string>("LastName");
-
-                    b.HasKey("StudentId");
-
-                    b.ToTable("Students");
-                });
 
             modelBuilder.Entity("StarterProject.Api.Features.Users.User", b =>
                 {
@@ -66,6 +30,8 @@ namespace StarterProject.Api.Migrations
                     b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
+
+                    b.Property<float>("GPA");
 
                     b.Property<string>("LastName");
 
@@ -87,9 +53,10 @@ namespace StarterProject.Api.Migrations
                             Id = 1,
                             Email = "admin@admin.com",
                             FirstName = "Seeded-Admin-FirstName",
+                            GPA = 0f,
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 197, 57, 9, 43, 234, 252, 167, 83, 128, 87, 50, 1, 231, 154, 73, 127, 159, 145, 52, 105 },
-                            PasswordSalt = new byte[] { 41, 2, 199, 149, 164, 85, 127, 171, 118, 5, 160, 167, 99, 146, 106, 134 },
+                            PasswordHash = new byte[] { 0, 134, 155, 204, 60, 163, 192, 103, 187, 33, 188, 6, 237, 25, 96, 113, 12, 157, 184, 190 },
+                            PasswordSalt = new byte[] { 77, 20, 75, 188, 204, 204, 189, 87, 160, 189, 71, 161, 6, 131, 189, 56 },
                             Role = "Admin",
                             Username = "admin"
                         });

@@ -12,12 +12,13 @@ namespace StarterProject.Api.Data
         {
         }
 
+        // Declare tables here
         public DbSet<User> Users { get; set; }
-        public DbSet<Login> Logins { get; set; }
-        public DbSet<Student> Students { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Declare relationships here (xoxo)
+
             var passwordHasher = new PasswordHash("admin");
             modelBuilder.Entity<User>().HasData(
                 new User
