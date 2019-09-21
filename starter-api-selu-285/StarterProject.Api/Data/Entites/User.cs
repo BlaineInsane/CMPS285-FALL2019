@@ -1,4 +1,6 @@
-﻿namespace StarterProject.Api.Features.Users
+﻿using System.Collections.Generic;
+
+namespace StarterProject.Api.Features.Users
 {
     public class User
     {
@@ -11,5 +13,7 @@
         public float GPA { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+
+        public List<UserClass> UsersClasses { get; set; }
     }
 }

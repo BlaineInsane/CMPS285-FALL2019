@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarterProject.Api.Data;
 
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190920031636_Add_MajorsTable")]
+    partial class Add_MajorsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,10 +52,6 @@ namespace StarterProject.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClassId");
-
-                    b.HasIndex("ConcentrationId");
-
                     b.ToTable("ClassesConcentrations");
                 });
 
@@ -65,11 +63,7 @@ namespace StarterProject.Api.Migrations
 
                     b.Property<string>("ConcentrationName");
 
-                    b.Property<int>("MajorId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("MajorId");
 
                     b.ToTable("Concentrations");
                 });
@@ -79,6 +73,8 @@ namespace StarterProject.Api.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ConcentrationId");
 
                     b.Property<string>("MajornName");
 
@@ -121,8 +117,8 @@ namespace StarterProject.Api.Migrations
                             FirstName = "Seeded-Admin-FirstName",
                             GPA = 0f,
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 108, 64, 180, 106, 134, 131, 51, 116, 25, 65, 87, 109, 86, 251, 228, 17, 174, 88, 201, 132 },
-                            PasswordSalt = new byte[] { 40, 148, 89, 112, 27, 189, 149, 25, 223, 105, 200, 2, 137, 71, 212, 41 },
+                            PasswordHash = new byte[] { 153, 125, 192, 25, 77, 139, 50, 150, 172, 236, 117, 214, 148, 50, 125, 194, 240, 70, 219, 179 },
+                            PasswordSalt = new byte[] { 47, 63, 110, 25, 245, 25, 190, 25, 232, 42, 126, 139, 28, 92, 178, 113 },
                             Role = "Admin",
                             Username = "admin"
                         });
@@ -144,45 +140,7 @@ namespace StarterProject.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClassId");
-
-                    b.HasIndex("UserId");
-
                     b.ToTable("UsersClasses");
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.ClassConcentration", b =>
-                {
-                    b.HasOne("StarterProject.Api.Features.Users.Class", "Class")
-                        .WithMany("ClassesConcentrations")
-                        .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("StarterProject.Api.Features.Users.Concentration", "Concentration")
-                        .WithMany("ClassesConcentrations")
-                        .HasForeignKey("ConcentrationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.Concentration", b =>
-                {
-                    b.HasOne("StarterProject.Api.Features.Users.Major", "Major")
-                        .WithMany("Concentrations")
-                        .HasForeignKey("MajorId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("StarterProject.Api.Features.Users.UserClass", b =>
-                {
-                    b.HasOne("StarterProject.Api.Features.Users.Class", "Class")
-                        .WithMany("UsersClasses")
-                        .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("StarterProject.Api.Features.Users.User", "User")
-                        .WithMany("UsersClasses")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
