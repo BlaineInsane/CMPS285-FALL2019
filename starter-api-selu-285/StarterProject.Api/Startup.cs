@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StarterProject.Api.Common;
 using StarterProject.Api.Data;
+using StarterProject.Api.Features.Majors;
 using StarterProject.Api.Features.Users;
 using StarterProject.Api.Helpers;
 using StarterProject.Api.Infrastructure;
@@ -86,6 +87,7 @@ namespace StarterProject.Api
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMajorRepository, MajorRepository>();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
