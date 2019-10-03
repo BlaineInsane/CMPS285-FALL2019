@@ -6,7 +6,7 @@ namespace StarterProject.Api.Features.Majors
 {
     public interface IMajorRepository
     {
-        MajorGetDto CreateMajor(MajorCreateDto MajorCreateDto);
+        MajorGetDto CreateMajor(MajorCreateDto majorCreateDto);
     }
 
     public class MajorRepository : IMajorRepository
@@ -18,23 +18,23 @@ namespace StarterProject.Api.Features.Majors
             _context = context;
         }
 
-        public MajorGetDto CreateMajor(MajorCreateDto MajorCreateDto)
+        public MajorGetDto CreateMajor(MajorCreateDto majorCreateDto)
         {
             var major = new Major
             {
-                MajorName = MajorCreateDto.MajorName
+                MajorName = majorCreateDto.MajorName
             };
 
             _context.Set<Major>().Add(major);
             _context.SaveChanges();
 
-            var MajorGetDto = new MajorGetDto
+            var majorGetDto = new MajorGetDto
             {
                 Id = major.Id,
                 MajorName = major.MajorName
             };
 
-            return MajorGetDto;
+            return majorGetDto;
         }
     }
 }
