@@ -10,7 +10,7 @@ using System.Net;
 
 namespace StarterProject.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     public class UsersController : ControllerBase
     {
