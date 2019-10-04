@@ -49,9 +49,12 @@ namespace StarterProject.Api.Controllers
         }
 
         // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{majorId:int}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        public IActionResult Delete(int majorId)
         {
+            _majorRepository.DeleteMajor(majorId);
+            return Ok();
         }
     }
 }

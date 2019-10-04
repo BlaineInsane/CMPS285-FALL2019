@@ -7,6 +7,7 @@ namespace StarterProject.Api.Features.Majors
     public interface IMajorRepository
     {
         MajorGetDto CreateMajor(MajorCreateDto majorCreateDto);
+        void DeleteMajor(int majorId);
     }
 
     public class MajorRepository : IMajorRepository
@@ -35,6 +36,13 @@ namespace StarterProject.Api.Features.Majors
             };
 
             return majorGetDto;
+        }
+
+        public void DeleteMajor(int majorId)
+        {
+            var major = _context.Set<Major>().Find(majorId);
+            _context.Set<Major>().Remove(major);
+            _context.SaveChanges();
         }
     }
 }
