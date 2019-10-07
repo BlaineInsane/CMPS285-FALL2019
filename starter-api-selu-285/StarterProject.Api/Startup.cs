@@ -90,6 +90,7 @@ namespace StarterProject.Api
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IMajorRepository, MajorRepository>();
             services.AddScoped<IConcentrationRepository, ConcentrationRepository>();
+            services.AddScoped<IClassConcentrationRepository, ClassConcentrationRepository>();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
