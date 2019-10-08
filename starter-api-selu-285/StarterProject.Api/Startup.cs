@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StarterProject.Api.Common;
 using StarterProject.Api.Data;
+using StarterProject.Api.Features.ClassesConcentrations;
 using StarterProject.Api.Features.Concentrations;
 using StarterProject.Api.Features.Majors;
 using StarterProject.Api.Features.Users;

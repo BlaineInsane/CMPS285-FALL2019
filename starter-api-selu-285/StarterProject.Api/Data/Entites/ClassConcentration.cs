@@ -2,7 +2,7 @@
 {
     public class ClassConcentration
     {
-        public int Id { get; set; }
+        public int ClassConcentrationId { get; set; }
 
         public int ClassId { get; set; } // FK to Classes table
         public Class Class { get; set; }

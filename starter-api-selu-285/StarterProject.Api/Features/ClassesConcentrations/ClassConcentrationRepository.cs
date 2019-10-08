@@ -1,42 +1,42 @@
 ﻿using StarterProject.Api.Data;
-using StarterProject.Api.Features.Concentrations.Dtos;
+using StarterProject.Api.Features.ClassesConcentrations.Dtos;
 using StarterProject.Api.Features.Users;
 
-namespace StarterProject.Api.Features.Concentrations
+namespace StarterProject.Api.Features.ClassesConcentrations
 {
-    public interface IConcentrationRepository
+    public interface IClassConcentrationRepository
     {
-        ConcentrationGetDto CreateConcentration(ConcentrationCreateDto concentrationCreateDto);
+        ClassConcentrationGetDto CreateClassConcentration(ClassConcentrationCreateDto classConcentrationCreateDto);
     }
     
-    public class ConcentrationRepository : IConcentrationRepository
+    public class ClassConcentrationRepository : IClassConcentrationRepository
     {
         private readonly DataContext _context;
 
-        public ConcentrationRepository(DataContext context)
+        public ClassConcentrationRepository(DataContext context)
         {
             _context = context;
         }
 
-        public ConcentrationGetDto CreateConcentration(ConcentrationCreateDto concentrationCreateDto)
+        public ClassConcentrationGetDto CreateClassConcentration(ClassConcentrationCreateDto classConcentrationCreateDto)
         {
-            var concentration = new Concentration
+            var classConcentration = new ClassConcentration
             {
-                ConcentrationName = concentrationCreateDto.ConcentrationName,
-                MajorId = concentrationCreateDto.MajorId
+                ClassId = classConcentrationCreateDto.ClassId,
+                ConcentrationId = classConcentrationCreateDto.ConcentrationId
             };
 
-            _context.Set<Concentration>().Add(concentration);
+            _context.Set<ClassConcentration>().Add(classConcentration);
             _context.SaveChanges();
 
-            var concentrationGetDto = new ConcentrationGetDto
+            var classConcentrationGetDto = new ClassConcentrationGetDto
             {
-                Id = concentration.Id,
-                ConcentrationName = concentration.ConcentrationName,
-                MajorId = concentration.MajorId
+                ClassConcentrationId = classConcentration.ClassConcentrationId,
+                ClassId = classConcentration.ClassId,
+                ConcentrationId = classConcentration.ConcentrationId
             };
 
-            return concentrationGetDto;
+            return classConcentrationGetDto;
         }
     }
 }

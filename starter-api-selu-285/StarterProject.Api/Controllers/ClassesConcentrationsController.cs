@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using StarterProject.Api.Features.Concentrations;
-using StarterProject.Api.Features.Concentrations.Dtos;
+using StarterProject.Api.Features.ClassesConcentrations;
+using StarterProject.Api.Features.ClassesConcentrations.Dtos;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace StarterProject.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ConcentrationsController : ControllerBase
+    public class ClassesConcentrationsController : ControllerBase
     {
-        private readonly IConcentrationRepository _concentrationRepository;
+        private readonly IClassConcentrationRepository _classConcentrationRepository;
 
-        public ConcentrationsController(
-            IConcentrationRepository concentrationRepostiory)
+        public ClassesConcentrationsController(
+            IClassConcentrationRepository classConcentrationRepository)
         {
-            _concentrationRepository = concentrationRepostiory;
+            _classConcentrationRepository = classConcentrationRepository;
         }
 
         // GET: api/<controller>
@@ -37,10 +37,10 @@ namespace StarterProject.Api.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public IActionResult Post([FromBody] ConcentrationCreateDto concentrationCreateDto)
+        public IActionResult Post([FromBody] ClassConcentrationCreateDto classConcentrationCreateDto)
         {
-            var concentration = _concentrationRepository.CreateConcentration(concentrationCreateDto);
-            return Created("[controller]", concentration);
+            var classConcentration = _classConcentrationRepository.CreateClassConcentration(classConcentrationCreateDto);
+            return Created("[controller]", classConcentration);
         }
 
         // PUT api/<controller>/5
