@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\ValuesController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="bin\Debug\netcoreapp2.2\StarterProject.Api.deps.json" />
     <Content Include="bin\Debug\netcoreapp2.2\StarterProject.Api.runtimeconfig.dev.json" />
   </ItemGroup>

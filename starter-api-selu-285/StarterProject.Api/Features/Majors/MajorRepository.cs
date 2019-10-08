@@ -8,6 +8,7 @@ namespace StarterProject.Api.Features.Majors
     {
         MajorGetDto CreateMajor(MajorCreateDto majorCreateDto);
         void DeleteMajor(int majorId);
+        MajorGetDto EditMajor(int id, MajorEditDto majorUpdateDto);
     }
 
     public class MajorRepository : IMajorRepository
@@ -34,6 +35,25 @@ namespace StarterProject.Api.Features.Majors
                 Id = major.Id,
                 MajorName = major.MajorName
             };
+
+            return majorGetDto;
+        }
+
+        public MajorGetDto EditMajor(int Id, MajorEditDto majorEditDto)
+        {
+            var major = _context.Set<Major>().Find(Id);
+
+
+            major.MajorName = majorEditDto.MajorName;
+            _context.SaveChanges();
+
+            var majorGetDto = new MajorGetDto
+            {
+                Id = major.Id,
+                MajorName = major.MajorName,
+            };
+
+            majorGetDto.Id = major.Id;
 
             return majorGetDto;
         }

@@ -8,6 +8,7 @@ namespace StarterProject.Api.Features.Users.Dtos
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
+        public int StartYear { get; set; }
         public string Password { get; set; }
     }
 
@@ -31,6 +32,10 @@ namespace StarterProject.Api.Features.Users.Dtos
             RuleFor(x => x.Password)
                 .NotEmpty()
                 .MinimumLength(6);
+
+            RuleFor(x => x.StartYear)
+                .NotEmpty()
+                .InclusiveBetween(1925, System.DateTime.Now.Year); //Southeastern starting year and now
         }
     }
 }

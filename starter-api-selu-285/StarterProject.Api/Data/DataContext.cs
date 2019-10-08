@@ -58,6 +58,7 @@ namespace StarterProject.Api.Data
                     Email = "admin@admin.com",
                     FirstName = "Seeded-Admin-FirstName",
                     LastName = "Seeded-Admin-LastName",
+                    StartYear = 2017,
                     PasswordHash = passwordHasher.Hash,
                     PasswordSalt = passwordHasher.Salt
                 });
