@@ -73,6 +73,7 @@ namespace StarterProject.Api.Features.Users
                 Username = userCreateDto.Username,
                 Email = userCreateDto.Email,
                 Role = Constants.Users.Roles.Admin,
+                StartYear = userCreateDto.StartYear,
                 PasswordSalt = passwordHash.Salt,
                 PasswordHash = passwordHash.Hash
             };
@@ -140,7 +141,8 @@ namespace StarterProject.Api.Features.Users
                 LastName = user.LastName,
                 Username = user.Username,
                 Email = user.Email,
-                Role = user.Role
+                Role = user.Role,
+                StartYear = user.StartYear
             };
 
             userGetDto.Id = user.Id;

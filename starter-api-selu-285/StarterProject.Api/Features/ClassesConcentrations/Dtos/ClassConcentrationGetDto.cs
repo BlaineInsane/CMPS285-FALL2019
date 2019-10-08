@@ -2,7 +2,7 @@
 {
     public class ClassConcentrationGetDto
     {
-        public int ClassConcentrationId { get; set; }
+        public int Id { get; set; }
         public int ClassId { get; set; }
         public int ConcentrationId { get; set; }
     }

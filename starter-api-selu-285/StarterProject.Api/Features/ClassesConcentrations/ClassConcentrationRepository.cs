@@ -31,7 +31,7 @@ namespace StarterProject.Api.Features.ClassesConcentrations
 
             var classConcentrationGetDto = new ClassConcentrationGetDto
             {
-                ClassConcentrationId = classConcentration.ClassConcentrationId,
+                Id = classConcentration.Id,
                 ClassId = classConcentration.ClassId,
                 ConcentrationId = classConcentration.ConcentrationId
             };
