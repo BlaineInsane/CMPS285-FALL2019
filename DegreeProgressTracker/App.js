@@ -3,10 +3,19 @@ import React from 'react';
 
 import DegreeProgressNavigator from './navigation/DegreeProgressNavigator';
 
+/*
 export default function App() {
   return <DegreeProgressNavigator />
 }
+*/
 
+const App = () => {
+    return (
+        <DegreeProgressNavigator />
+    );
+}
+
+export default App;
 
 
 

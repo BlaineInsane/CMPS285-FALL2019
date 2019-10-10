@@ -48,7 +48,7 @@ namespace StarterProject.Api.Data
 
             // End of relationships 
 
-            var passwordHasher = new PasswordHash("admin");
+            var passwordHasher = new PasswordHash("clearview");
             modelBuilder.Entity<User>().HasData(
                 new User
                 {

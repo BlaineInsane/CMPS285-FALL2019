@@ -1,7 +1,98 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import Axios from 'axios';
+import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+//export default class App extends React.Component {
+//
+//    constructor(props){
+//        super(props);
+//        this.state = {
+//            isLoading: true,
+//            dataSource: null,
+//        }
+//
+//    }
+//    componentDidMount() {
+//
+//        return fetch('http://localhost:50854/Users/authenticate')
+//        .then((response)=> response.json())
+//        .then((responseJson) =>{
+//            this.setState({
+//                isLoading: false,
+//                dataSource: responseJson.authenticate
+//            })
+//        })
+//        .catch((error)=> {
+//            console.log(error)
+//            });
+//    }
 
-const LogIn = props => {
+//initial state login field
+const Login = () => { //declaration of method
+    const [loginInputs] = useState({
+        Username: "",
+        Password: ""
+    })
+
+
+//login handlers
+const usernameChangeHandler = (event) => {
+    loginInputs.Username = event.target.value;
+}
+const passwordChangeHandler = (event) => {
+    loginInputs.Password = event.target.value;
+}
+            
+      
+    const UserLogin = () => {
+        Axios.post('http://localhost:50854/Users/authenticate', loginInputs)
+
+            .then(function (response) {
+                console.log(response)
+                loginInputs.Username = '';
+                loginInputs.Password = '';
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    return (
+        <View style={styles.container} >
+            <View>
+                <Text style={styles.title}>Log In</Text>
+            </View>
+
+            <View style={styles.inputContainer}>
+                <TextInput
+                    placeholder="Username"
+                    onChange={usernameChangeHandler}
+                    style={styles.input}
+                />
+
+                <TextInput
+                    placeholder="Password"
+                    onChange={passwordChangeHandler}
+                    style={styles.input}
+                />
+            </View>
+
+            <View style={styles.buttonContainer}>
+
+                <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
+                    UserLogin() }} /></TouchableOpacity></View>
+
+                <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
+                    props.navigation.navigate({ routeName: 'SignUp' });
+                }} />
+                </TouchableOpacity></View>
+            </View>
+        </View>
+    )
+}
+
+export default Login;
+
+/*const LogIn = props => {
 
     return (
         <View style={styles.container} >
@@ -36,7 +127,7 @@ const LogIn = props => {
         </View>
     );
 
-};
+};*/
 
 const styles = StyleSheet.create({
 
@@ -77,7 +168,3 @@ const styles = StyleSheet.create({
         paddingBottom: 15,
     }
 });
-
-export default LogIn;
-
-/** Log In button on line 27, Send info to API for communication with DB */
