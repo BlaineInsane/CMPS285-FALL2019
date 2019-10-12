@@ -434,6 +434,17 @@ nunit-*.xml
 [Dd]ebugPS/
 [Rr]eleasePS/
 dlldata.c
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
 
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
@@ -756,3 +767,4 @@ starter-api-selu-285/.vs
 # Ignore all local history of files
 .history
 DegreeProgressTracker/.vscode
+starter-api-selu-285/.vs/StarterProject.Api/DesignTimeBuild/.dtbcache
