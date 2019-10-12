@@ -37,7 +37,9 @@ namespace StarterProject.Api.Features.Users
                     LastName = x.LastName,
                     Username = x.Username,
                     Email = x.Email,
-                    Role = x.Role
+                    Role = x.Role,
+                    GPA = x.GPA,
+                    StartYear = x.StartYear
                 })
                 .FirstOrDefault(x => x.Id == userId);
         }
@@ -53,7 +55,9 @@ namespace StarterProject.Api.Features.Users
                     LastName = x.LastName,
                     Username = x.Username,
                     Email = x.Email,
-                    Role = x.Role
+                    Role = x.Role,
+                    GPA = x.GPA,
+                    StartYear = x.StartYear
                 })
                 .ToList();
         }
@@ -68,7 +72,8 @@ namespace StarterProject.Api.Features.Users
                 LastName = userCreateDto.LastName,
                 Username = userCreateDto.Username,
                 Email = userCreateDto.Email,
-                Role = Constants.Users.Roles.User,
+                Role = Constants.Users.Roles.Admin,
+                StartYear = userCreateDto.StartYear,
                 PasswordSalt = passwordHash.Salt,
                 PasswordHash = passwordHash.Hash
             };
@@ -83,7 +88,8 @@ namespace StarterProject.Api.Features.Users
                 LastName = user.LastName,
                 Username = user.Username,
                 Email = user.Email,
-                Role = user.Role
+                Role = user.Role,
+                StartYear = user.StartYear
             };
 
             return userGetDto;
@@ -98,6 +104,7 @@ namespace StarterProject.Api.Features.Users
             user.LastName = userEditDto.LastName;
             user.Username = userEditDto.Username;
             user.Email = userEditDto.Email;
+            user.StartYear = userEditDto.StartYear;
             user.PasswordSalt = passwordHash.Salt;
             user.PasswordHash = passwordHash.Hash;
 
@@ -110,7 +117,8 @@ namespace StarterProject.Api.Features.Users
                 LastName = user.LastName,
                 Username = user.Username,
                 Email = user.Email,
-                Role = user.Role
+                Role = user.Role,
+                StartYear = user.StartYear
             }; 
 
             userGetDto.Id = user.Id;
@@ -133,7 +141,8 @@ namespace StarterProject.Api.Features.Users
                 LastName = user.LastName,
                 Username = user.Username,
                 Email = user.Email,
-                Role = user.Role
+                Role = user.Role,
+                StartYear = user.StartYear
             };
 
             userGetDto.Id = user.Id;

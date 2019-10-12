@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarterProject.Api.Data;
 
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20191003212051_Update_MajorTable_MajorNameSpellingFix")]
+    partial class Update_MajorTable_MajorNameSpellingFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,8 +109,6 @@ namespace StarterProject.Api.Migrations
 
                     b.Property<string>("Role");
 
-                    b.Property<int>("StartYear");
-
                     b.Property<string>("Username");
 
                     b.HasKey("Id");
@@ -123,10 +123,9 @@ namespace StarterProject.Api.Migrations
                             FirstName = "Seeded-Admin-FirstName",
                             GPA = 0f,
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 123, 110, 178, 183, 151, 220, 213, 25, 78, 73, 197, 84, 176, 65, 127, 222, 231, 39, 74, 82 },
-                            PasswordSalt = new byte[] { 37, 114, 117, 129, 194, 238, 252, 23, 79, 232, 84, 156, 184, 147, 196, 152 },
+                            PasswordHash = new byte[] { 226, 249, 77, 230, 200, 77, 120, 205, 228, 247, 92, 112, 175, 161, 61, 154, 59, 109, 68, 95 },
+                            PasswordSalt = new byte[] { 49, 75, 185, 161, 178, 231, 223, 50, 211, 84, 43, 246, 54, 209, 115, 217 },
                             Role = "Admin",
-                            StartYear = 2017,
                             Username = "admin"
                         });
                 });
