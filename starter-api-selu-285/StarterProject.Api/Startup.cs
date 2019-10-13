@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StarterProject.Api.Common;
 using StarterProject.Api.Data;
+using StarterProject.Api.Features.Classes;
 using StarterProject.Api.Features.ClassesConcentrations;
 using StarterProject.Api.Features.Concentrations;
 using StarterProject.Api.Features.Majors;
@@ -92,6 +93,7 @@ namespace StarterProject.Api
             services.AddScoped<IMajorRepository, MajorRepository>();
             services.AddScoped<IConcentrationRepository, ConcentrationRepository>();
             services.AddScoped<IClassConcentrationRepository, ClassConcentrationRepository>();
+            services.AddScoped<IClassRepository, ClassRepository>();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
