@@ -59,12 +59,12 @@ const styles = StyleSheet.create({
         fontSize: 35,
         textAlign: "center",
         color: 'black',
-        paddingTop: 30,
+        paddingTop: 100,
         //fontFamily: 'Helvetica',
     },
     inputContainer: {
         alignItems: 'center',
-        paddingBottom: 125,
+        paddingBottom: 150,
     },
     input: {
         height: 35,
