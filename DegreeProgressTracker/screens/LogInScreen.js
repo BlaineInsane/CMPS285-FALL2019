@@ -27,22 +27,22 @@ import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'rea
 //    }
 
 //initial state login field
-const Login = () => { //declaration of method
+const Login = props => { //declaration of method
     const [loginInputs] = useState({
         Username: "",
         Password: ""
     })
 
 
-//login handlers
-const usernameChangeHandler = (event) => {
-    loginInputs.Username = event.target.value;
-}
-const passwordChangeHandler = (event) => {
-    loginInputs.Password = event.target.value;
-}
-            
-      
+    //login handlers
+    const usernameChangeHandler = (event) => {
+        loginInputs.Username = event.target.value;
+    }
+    const passwordChangeHandler = (event) => {
+        loginInputs.Password = event.target.value;
+    }
+
+
     const UserLogin = () => {
         Axios.post('http://localhost:50854/Users/authenticate', loginInputs)
 
@@ -58,19 +58,20 @@ const passwordChangeHandler = (event) => {
 
     return (
         <View style={styles.container} >
+
             <View>
                 <Text style={styles.title}>Log In</Text>
             </View>
 
             <View style={styles.inputContainer}>
                 <TextInput
-                    placeholder="Username"
+                    placeholder=" Username"
                     onChange={usernameChangeHandler}
                     style={styles.input}
                 />
 
                 <TextInput
-                    placeholder="Password"
+                    placeholder=" Password"
                     onChange={passwordChangeHandler}
                     style={styles.input}
                 />
@@ -79,16 +80,20 @@ const passwordChangeHandler = (event) => {
             <View style={styles.buttonContainer}>
 
                 <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
-                    UserLogin() }} /></TouchableOpacity></View>
+                    UserLogin()
+                }} /></TouchableOpacity></View>
 
                 <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
                     props.navigation.navigate({ routeName: 'SignUp' });
                 }} />
                 </TouchableOpacity></View>
+
             </View>
+
         </View>
-    )
-}
+    );
+
+};
 
 export default Login;
 
@@ -136,13 +141,13 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#1E8449',
         justifyContent: 'space-between',
-        
+
     },
     title: {
         fontSize: 35,
         textAlign: "center",
         color: 'black',
-        paddingTop: 30,
+        paddingTop: 100,
         //fontFamily: 'Helvetica',
     },
     input: {
