@@ -42,11 +42,6 @@ namespace StarterProject.Api.Controllers
             return Created("[controller]", major);
         }
 
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
         [HttpPut("[controller]/{id:int}")]
         [ProducesResponseType(typeof(MajorGetDto), (int)HttpStatusCode.OK)]
         public IActionResult Put(int id, [FromBody] MajorEditDto majorEditDto)
