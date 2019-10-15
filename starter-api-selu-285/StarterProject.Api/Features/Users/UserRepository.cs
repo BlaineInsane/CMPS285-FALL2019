@@ -72,7 +72,7 @@ namespace StarterProject.Api.Features.Users
                 LastName = userCreateDto.LastName,
                 Username = userCreateDto.Username,
                 Email = userCreateDto.Email,
-                Role = Constants.Users.Roles.Admin,
+                Role = Constants.Users.Roles.User,
                 StartYear = userCreateDto.StartYear,
                 PasswordSalt = passwordHash.Salt,
                 PasswordHash = passwordHash.Hash
