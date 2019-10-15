@@ -19,20 +19,7 @@ namespace StarterProject.Api.Controllers
             _majorRepository = majorRepository;
         }
 
-        // GET: api/<controller>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
+        
         // POST api/<controller>
         [HttpPost]
         [ProducesResponseType(typeof(MajorGetDto), (int)HttpStatusCode.Created)]
@@ -41,7 +28,7 @@ namespace StarterProject.Api.Controllers
             var major = _majorRepository.CreateMajor(majorCreateDto);
             return Created("[controller]", major);
         }
-
+        //PUT api/<controller>
         [HttpPut("[controller]/{id:int}")]
         [ProducesResponseType(typeof(MajorGetDto), (int)HttpStatusCode.OK)]
         public IActionResult Put(int id, [FromBody] MajorEditDto majorEditDto)
