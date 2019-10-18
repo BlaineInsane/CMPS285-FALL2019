@@ -1,12 +1,16 @@
 ﻿using StarterProject.Api.Data;
 using StarterProject.Api.Features.Majors.Dtos;
 using StarterProject.Api.Features.Users;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace StarterProject.Api.Features.Majors
 {
     public interface IMajorRepository
     {
         MajorGetDto CreateMajor(MajorCreateDto majorCreateDto);
+        MajorGetDto GetMajor(int majorId);
+        List<MajorGetDto> GetAllMajors();
         void DeleteMajor(int majorId);
         MajorGetDto EditMajor(int id, MajorEditDto majorUpdateDto);
     }
@@ -37,6 +41,30 @@ namespace StarterProject.Api.Features.Majors
             };
 
             return majorGetDto;
+        }
+
+        public MajorGetDto GetMajor(int majorId)
+        {
+            return _context
+                .Set<Major>()
+                .Select(x => new MajorGetDto
+                {
+                    Id = x.Id,
+                    MajorName = x.MajorName
+                })
+                .FirstOrDefault(x => x.Id == majorId);
+        }
+
+        public List<MajorGetDto> GetAllMajors()
+        {
+            return _context
+                .Set<Major>()
+                .Select(x => new MajorGetDto
+                {
+                    Id = x.Id,
+                    MajorName = x.MajorName
+                })
+                .ToList();
         }
 
         public MajorGetDto EditMajor(int Id, MajorEditDto majorEditDto)
