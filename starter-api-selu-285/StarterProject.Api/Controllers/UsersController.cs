@@ -10,7 +10,7 @@ using System.Net;
 
 namespace StarterProject.Api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -70,7 +70,7 @@ namespace StarterProject.Api.Controllers
             return Ok(user);
         }
 
-        //[Authorize(Roles = Constants.Users.Roles.Admin)]
+        [Authorize(Roles = Constants.Users.Roles.Admin)]
         [Authorize(Policy = Constants.Policies.CanChangeUserRole)]
         [HttpPut("[controller]/{userId:int}/Role")]
         [ProducesResponseType(typeof(UserGetDto), (int)HttpStatusCode.OK)]
