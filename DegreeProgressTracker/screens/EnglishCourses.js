@@ -1,11 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground } from 'react-native';
 import CourseItem from '../components/CourseItem';
 
 const EnglishCourses = props => {
 
     return (
 
+        <ImageBackground
+            style={{
+                flex: 1,
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                justifyContent: 'center',
+            }}
+            source={require('../assets/Background.png')}
+        >
+        
         <View style={styles.container}>
 
             <View>
@@ -39,6 +50,7 @@ const EnglishCourses = props => {
 
         </View>
 
+        </ImageBackground>
 
     );
 };
@@ -47,7 +59,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#1E8449',
+        //backgroundColor: '#1E8449',
         alignItems: 'center',
         width: '100%',
     },
