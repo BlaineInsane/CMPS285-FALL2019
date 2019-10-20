@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground } from 'react-native';
 //export default class App extends React.Component {
 //
 //    constructor(props){
@@ -57,40 +57,55 @@ const Login = props => { //declaration of method
     }
 
     return (
-        <View style={styles.container} >
 
-            <View>
-                <Text style={styles.title}>Log In</Text>
+        <ImageBackground
+            style={{
+                flex: 1,
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                justifyContent: 'center',
+            }}
+            source={require('../assets/Background.png')}
+        >
+
+            <View style={styles.container} >
+
+                <View>
+                    <Text style={styles.title}>Log In</Text>
+                </View>
+
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        placeholder=" Username"
+                        onChange={usernameChangeHandler}
+                        style={styles.input}
+                    />
+
+                    <TextInput
+                        placeholder=" Password"
+                        secureTextEntry={true}
+                        onChange={passwordChangeHandler}
+                        style={styles.input}
+                    />
+                </View>
+
+                <View style={styles.buttonContainer}>
+
+                    <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
+                        UserLogin()
+                    }} /></TouchableOpacity></View>
+
+                    <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
+                        props.navigation.navigate({ routeName: 'SignUp' });
+                    }} />
+                    </TouchableOpacity></View>
+
+                </View>
+
             </View>
 
-            <View style={styles.inputContainer}>
-                <TextInput
-                    placeholder=" Username"
-                    onChange={usernameChangeHandler}
-                    style={styles.input}
-                />
-
-                <TextInput
-                    placeholder=" Password"
-                    onChange={passwordChangeHandler}
-                    style={styles.input}
-                />
-            </View>
-
-            <View style={styles.buttonContainer}>
-
-                <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
-                    UserLogin()
-                }} /></TouchableOpacity></View>
-
-                <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
-                    props.navigation.navigate({ routeName: 'SignUp' });
-                }} />
-                </TouchableOpacity></View>
-
-            </View>
-
-        </View>
+        </ImageBackground>
     );
 
 };
@@ -139,7 +154,7 @@ const styles = StyleSheet.create({
     container: {
         height: '100%',
         width: '100%',
-        backgroundColor: '#1E8449',
+        //backgroundColor: '#1E8449',
         justifyContent: 'space-between',
 
     },
