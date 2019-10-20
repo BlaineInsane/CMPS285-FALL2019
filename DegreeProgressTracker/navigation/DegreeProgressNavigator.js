@@ -11,6 +11,7 @@ import NaturalScienceCourses from '../screens/NaturalScienceCourses';
 import EnglishCourses from '../screens/EnglishCourses';
 import ElectiveCourses from '../screens/ElectiveCourses';
 import OtherCourses from '../screens/OtherCourses';
+import ProgressScreen from '../screens/ProgressScreen';
 
 const DegreeProgressNavigator = createStackNavigator({
     Welcome: {
@@ -80,6 +81,13 @@ const DegreeProgressNavigator = createStackNavigator({
         screen: OtherCourses,
         navigationOptions: {
             title: 'Other Courses',
+            header: null
+        },
+    },
+    ProgressScreen: {
+        screen: ProgressScreen,
+        navigationOptions: {
+            title: 'Progress Screen',
             header: null
         },
     },
