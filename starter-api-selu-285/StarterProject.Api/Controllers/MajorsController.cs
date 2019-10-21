@@ -51,8 +51,8 @@ namespace StarterProject.Api.Controllers
         [ProducesResponseType(typeof(MajorGetDto), (int)HttpStatusCode.OK)]
         public IActionResult Put(int majorId, [FromBody] MajorEditDto majorEditDto)
         {
-            var user = _majorRepository.EditMajor(majorId, majorEditDto);
-            return Ok(user);
+            var major = _majorRepository.EditMajor(majorId, majorEditDto);
+            return Ok(major);
         }
 
         // DELETE api/<controller>/5
