@@ -13,6 +13,9 @@ namespace StarterProject.Api.Features.Majors.Dtos
         {
             RuleFor(x => x.MajorName)
                 .NotEmpty();
+
+            RuleFor(x => x.MajorName)
+                .Matches(@"^[a-zA-Z0-9'\-\s]*$"); // only accept "alphanumeric ' -"
         }
     }
 }
