@@ -1,47 +1,66 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, TextInput, ImageBackground, KeyboardAvoidingView } from 'react-native';
+
 
 const SignUp = props => {
 
     return (
-        <View style={styles.container}>
 
-            <View>
+        <ImageBackground
+            style={{
+                flex: 1,
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                justifyContent: 'center',
+            }}
+            source={require('../assets/Background.png')}
+        >
 
-                <Text style={styles.title}>Sign Up</Text>
+            <View style={styles.container}>
 
+                <View>
+
+                    <Text style={styles.title}>Sign Up</Text>
+
+                </View>
+
+                <KeyboardAvoidingView style={styles.inputContainer} behavior="padding">
+
+                    <TextInput
+                        placeholder=" Username"
+                        style={styles.input}
+                    />
+
+                    <TextInput
+                        placeholder=" Email"
+                        style={styles.input}
+                    />
+
+                    <TextInput
+                        secureTextEntry={true}
+                        placeholder=" Password"
+                        style={styles.input}
+                    />
+
+                    <TextInput
+                        secureTextEntry={true}
+                        placeholder=" Confirm Password"
+                        style={styles.input}
+                    />
+
+
+                    <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' /></TouchableOpacity></View>
+
+                    <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
+                        props.navigation.navigate({ routeName: 'LogIn' });
+                    }} /></TouchableOpacity></View>
+
+                    <View style={{ height: 145 }} />
+                </KeyboardAvoidingView>
             </View>
 
-            <View style={styles.inputContainer}>
-
-                <TextInput
-                    placeholder=" Username"
-                    style={styles.input}
-                />
-
-                <TextInput
-                    placeholder=" Email"
-                    style={styles.input}
-                />
-
-                <TextInput
-                    placeholder=" Password"
-                    style={styles.input}
-                />
-
-                <TextInput
-                    placeholder=" Confirm Password"
-                    style={styles.input}
-                />
-
-                <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' /></TouchableOpacity></View>
-
-                <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
-                    props.navigation.navigate({ routeName: 'LogIn' });
-                }} /></TouchableOpacity></View>
-
-            </View>
-        </View>
+        </ImageBackground>
     );
 
 };
@@ -51,7 +70,7 @@ const styles = StyleSheet.create({
     container: {
         height: '100%',
         width: '100%',
-        backgroundColor: '#1E8449',
+        //backgroundColor: '#1E8449',
         justifyContent: 'space-between',
 
     },
@@ -64,7 +83,7 @@ const styles = StyleSheet.create({
     },
     inputContainer: {
         alignItems: 'center',
-        paddingBottom: 150,
+        paddingBottom: 250,
     },
     input: {
         height: 35,
