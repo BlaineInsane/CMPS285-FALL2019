@@ -28,6 +28,7 @@ namespace StarterProject.Api.Controllers
             var major = _majorRepository.CreateMajor(majorCreateDto);
             return Created("[controller]", major);
         }
+       
         //PUT api/<controller>
         [HttpPut("[controller]/{id:int}")]
         [ProducesResponseType(typeof(MajorGetDto), (int)HttpStatusCode.OK)]
@@ -43,6 +44,8 @@ namespace StarterProject.Api.Controllers
         {
             _majorRepository.DeleteMajor(majorId);
             return Ok();
+    
         }
+    
     }
 }

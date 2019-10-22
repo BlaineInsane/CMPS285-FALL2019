@@ -1,0 +1,70 @@
+Things to do:
+password should be obscured on front end
+sign-on DTO needs to be created
+put commands need to check if user exists first into delete and edit controllers
+Finish API
+add background image to front-end
+connect API to login
+
+Login Screen, sign-up screen, welcome screen, navigation
+User DTOs, User Controller, 
+
+
+Past
+
+Sprint 1
+
+Front-End
+React Native comprehension
+
+General Knowledge
+Git comprehension
+Fork comprehension
+GitHub comprehension
+
+Back-End
+.Net Core and C# Comprehension
+Swagger comprehension
+Visual Studio comprehension
+SQL Express comprehension
+Microsoft SQL Server Management Studio comprehension
+Entity Framework comprehension
+
+Sprint 2
+
+Front-End
+Welcome Screen
+
+Back-End
+Database
+USer DTOs
+User Controller/End Points
+
+Sprint 3
+
+Front-End
+Login Screen
+Sign-Up Screen
+Navigation
+Axios comprehension
+Hooks comprehension
+
+Back-End
+Creation of majority of basic DTOs
+
+Sprint 4
+
+Front-End
+
+
+
+Incorporate pre-made request bodies
+copy paste from notepad++ and write it directly in swagger 
+text very small in swagger
+remove sprints slide
+extend screen next time
+highlight the swagger results 2 to 3 requests
+show front end as well as swagger
+
+
+

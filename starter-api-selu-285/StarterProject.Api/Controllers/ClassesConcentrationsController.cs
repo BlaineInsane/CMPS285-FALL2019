@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StarterProject.Api.Features.ClassesConcentrations;
 using StarterProject.Api.Features.ClassesConcentrations.Dtos;
+using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,7 +23,7 @@ namespace StarterProject.Api.Controllers
         }
 
        
-
+        
         // POST api/<controller>
         [HttpPost]
         public IActionResult Post([FromBody] ClassConcentrationCreateDto classConcentrationCreateDto)
@@ -31,8 +32,15 @@ namespace StarterProject.Api.Controllers
             return Created("[controller]", classConcentration);
         }
 
-        
-
+        [HttpGet("[controller]/{ClassConcentrationId:int}")]
+        [ProducesResponseType(typeof(ClassConcentrationGetDto), (int)HttpStatusCode.OK)]
+        public IActionResult Get(int classConcentrationId)
+        {
+            var classConcentration = _classConcentrationRepository.GetClassConcentration(classConcentrationId);
+            return Ok(classConcentration);
+        }
        
+
+
     }
 }
