@@ -8,7 +8,7 @@ using StarterProject.Api.Features.Majors.Dtos;
 
 namespace StarterProject.Api.Controllers
 {
-    [ApiController]
+    [Route("api/[ApiController]")]
     public class MajorsController : ControllerBase
     {
         private readonly IMajorRepository _majorRepository;
@@ -19,6 +19,7 @@ namespace StarterProject.Api.Controllers
             _majorRepository = majorRepository;
         }
 
+        
         // GET: api/<controller>
         [HttpGet("[controller]/{majorId:int}")]
         [ProducesResponseType(typeof(MajorGetDto), (int)HttpStatusCode.OK)]
@@ -38,30 +39,32 @@ namespace StarterProject.Api.Controllers
         }
 
         // POST api/<controller>
-        [HttpPost("[controller]")]
+        [HttpPost]
         [ProducesResponseType(typeof(MajorGetDto), (int)HttpStatusCode.Created)]
         public IActionResult Post([FromBody] MajorCreateDto majorCreateDto)
         {
             var major = _majorRepository.CreateMajor(majorCreateDto);
             return Created("[controller]", major);
         }
-
-        // PUT api/<controller>/5
-        [HttpPut("[controller]/{majorId:int}")]
+       
+        //PUT api/<controller>
+        [HttpPut("[controller]/{id:int}")]
         [ProducesResponseType(typeof(MajorGetDto), (int)HttpStatusCode.OK)]
-        public IActionResult Put(int majorId, [FromBody] MajorEditDto majorEditDto)
+        public IActionResult Put(int id, [FromBody] MajorEditDto majorEditDto)
         {
-            var major = _majorRepository.EditMajor(majorId, majorEditDto);
-            return Ok(major);
+            var user = _majorRepository.EditMajor(id, majorEditDto);
+            return Ok(user);
         }
 
         // DELETE api/<controller>/5
-        [HttpDelete("[controller]/{majorId:int}")]
+        [HttpDelete("{majorId:int}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public IActionResult Delete(int majorId)
         {
             _majorRepository.DeleteMajor(majorId);
             return Ok();
+    
         }
+    
     }
 }

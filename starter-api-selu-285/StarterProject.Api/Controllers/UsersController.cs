@@ -54,6 +54,7 @@ namespace StarterProject.Api.Controllers
             return Ok(user);
         }
 
+        [AllowAnonymous]
         [HttpPost("[controller]")]
         [ProducesResponseType(typeof(UserGetDto), (int)HttpStatusCode.Created)]
         public IActionResult Post([FromBody] UserCreateDto userCreateDto)
