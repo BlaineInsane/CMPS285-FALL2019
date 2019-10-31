@@ -1,8 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, TextInput, ImageBackground, KeyboardAvoidingView } from 'react-native';
+import Axios from 'axios';
 
-
+// inital state of sign up fields
 const SignUp = props => {
+    const [signUpInputs] = useState({
+        FirstName: "",
+        LastName: "",
+        Username: "",
+        Emali: "",
+        Password: "",
+        ConfirmPassword: ""
+    })
+
+    //sign up handlers
+    const firstNameChangeHandler = (event) => {
+        signUpInputs.FirstName = event.target.value;
+    }
+    const lastNameChangeHandler = (event) => {
+        signUpInputs.LastName = event.target.value;
+    }
+    const userNameChangeHandler = (event) => {
+        signUpInputs.UserName = event.target.value;
+    }
+    const emailChangeHandler = (event) => {
+        signUpInputs.Email = event.target.value;
+    }
+    const passwordChangeHandler = (event) => {
+        signUpInputs.Password = event.target.value;
+    }
+    const confirmPasswordChangeHandler = (event) => {
+        signUpInputs.ConfirmPassword = event.target.value;
+    }
+
+    const createUserAndNavigate = () => {
+        createUser();
+        props.navigation.navigate({ routeName: 'TestScreen' });
+    }
+
+    const createUser = () => {
+        Axios.post('http://localhost:50854/Users', signUpInputs)
+
+            .then(function (response) {
+                console.log(response)
+                signUpInputs.FirstName = '';
+                signUpInputs.LastName = '';
+                signUpInputs.Username = '';
+                signUpInputs.Email = '';
+                signUpInputs.Password = '';
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     return (
 
@@ -28,29 +78,49 @@ const SignUp = props => {
                 <KeyboardAvoidingView style={styles.inputContainer} behavior="padding">
 
                     <TextInput
+                        placeholder=" First name"
+                        style={styles.input}
+                        onChange={firstNameChangeHandler}
+                    />
+
+                    <TextInput
+                        placeholder=" Last name"
+                        style={styles.input}
+                        onChange={lastNameChangeHandler}
+                    />
+
+                    <TextInput
                         placeholder=" Username"
                         style={styles.input}
+                        onChange={userNameChangeHandler}
                     />
 
                     <TextInput
                         placeholder=" Email"
                         style={styles.input}
+                        onChange={emailChangeHandler}
                     />
 
                     <TextInput
                         secureTextEntry={true}
                         placeholder=" Password"
                         style={styles.input}
+                        onChange={passwordChangeHandler}
                     />
 
                     <TextInput
                         secureTextEntry={true}
                         placeholder=" Confirm Password"
                         style={styles.input}
+                        onChange={confirmPasswordChangeHandler}
                     />
 
 
-                    <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' /></TouchableOpacity></View>
+                    <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' 
+                        onPress={() => {
+                            createUserAndNavigate();
+                        }}
+                        /></TouchableOpacity></View>
 
                     <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
                         props.navigation.navigate({ routeName: 'LogIn' });

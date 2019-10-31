@@ -1,33 +1,8 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground } from 'react-native';
-//export default class App extends React.Component {
-//
-//    constructor(props){
-//        super(props);
-//        this.state = {
-//            isLoading: true,
-//            dataSource: null,
-//        }
-//
-//    }
-//    componentDidMount() {
-//
-//        return fetch('http://localhost:50854/Users/authenticate')
-//        .then((response)=> response.json())
-//        .then((responseJson) =>{
-//            this.setState({
-//                isLoading: false,
-//                dataSource: responseJson.authenticate
-//            })
-//        })
-//        .catch((error)=> {
-//            console.log(error)
-//            });
-//    }
 
-//initial state login field
-const LogIn = props => { //declaration of method
+const TestScreen = props => { 
     const [loginInputs] = useState({
         Username: "",
         Password: ""
@@ -43,13 +18,12 @@ const LogIn = props => { //declaration of method
     }
 
 
-    const UserLogin = () => {
-        Axios.post('http://localhost:50854/Users/authenticate', loginInputs)
+    const testCreateUser = () => {
+        Axios.get('http://localhost:50854/Users')
 
-            .then(function (response) {
-                console.log(response)
-                loginInputs.Username = '';
-                loginInputs.Password = '';
+            .then(res => {
+                const userFirstName = res.data.FirstName;
+                console.log(userFirstName);
             })
             .catch(function (error) {
                 console.log(error);
@@ -72,12 +46,12 @@ const LogIn = props => { //declaration of method
             <View style={styles.container} >
 
                 <View>
-                    <Text style={styles.title}>Log In</Text>
+                    <Text style={styles.title}>Test Screen</Text>
                 </View>
 
                 <View style={styles.inputContainer}>
                     <TextInput
-                        placeholder=" Username"
+                        placeholder=" Test box"
                         onChange={usernameChangeHandler}
                         style={styles.input}
                     />
@@ -92,9 +66,7 @@ const LogIn = props => { //declaration of method
 
                 <View style={styles.buttonContainer}>
 
-                    <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
-                        UserLogin()
-                    }} /></TouchableOpacity></View>
+                    <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' /></TouchableOpacity></View>
 
                     <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
                         props.navigation.navigate({ routeName: 'SignUp' });
@@ -110,44 +82,8 @@ const LogIn = props => { //declaration of method
 
 };
 
-export default LogIn;
+export default TestScreen;
 
-/*const LogIn = props => {
-
-    return (
-        <View style={styles.container} >
-
-            <View>
-                <Text style={styles.title}>Log In</Text>
-            </View>
-
-            <View style={styles.inputContainer}>
-                <TextInput
-                    placeholder="Username"
-                    style={styles.input}
-                />
-
-                <TextInput
-                    placeholder="Password"
-                    style={styles.input}
-                />
-            </View>
-
-            <View style={styles.buttonContainer}>
-                
-                <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey'/></TouchableOpacity></View>
-
-                <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
-                    props.navigation.navigate({ routeName: 'SignUp' });
-                }} />
-                </TouchableOpacity></View>
-
-            </View>
-
-        </View>
-    );
-
-};*/
 
 const styles = StyleSheet.create({
 
