@@ -4,34 +4,40 @@ import Axios from 'axios';
 
 // inital state of sign up fields
 const SignUp = props => {
-    const [signUpInputs] = useState({
-        FirstName: "",
-        LastName: "",
-        Username: "",
-        Emali: "",
-        Password: "",
-        ConfirmPassword: ""
+    var [signUpInputs] = useState({
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        startYear: 0,
+        password: "",
     })
 
     //sign up handlers
     const firstNameChangeHandler = (event) => {
-        signUpInputs.FirstName = event.target.value;
+        signUpInputs.firstName = event.nativeEvent.text;
     }
     const lastNameChangeHandler = (event) => {
-        signUpInputs.LastName = event.target.value;
+        signUpInputs.lastName = event.nativeEvent.text;
     }
     const userNameChangeHandler = (event) => {
-        signUpInputs.UserName = event.target.value;
+        signUpInputs.username = event.nativeEvent.text;
     }
     const emailChangeHandler = (event) => {
-        signUpInputs.Email = event.target.value;
+        signUpInputs.email = event.nativeEvent.text;
+    }
+    const startYearChangeHandler = (event) => {
+        signUpInputs.startYear  = parseInt(event.nativeEvent.text);
     }
     const passwordChangeHandler = (event) => {
-        signUpInputs.Password = event.target.value;
+        signUpInputs.password = event.nativeEvent.text;;
     }
+    /*
     const confirmPasswordChangeHandler = (event) => {
-        signUpInputs.ConfirmPassword = event.target.value;
+        signUpInputs.ConfirmPassword = event.nativeEvent.text;
     }
+    */
+
 
     const createUserAndNavigate = () => {
         createUser();
@@ -39,15 +45,16 @@ const SignUp = props => {
     }
 
     const createUser = () => {
-        Axios.post('http://localhost:50854/Users', signUpInputs)
+        Axios.post('http://192.168.1.120:50854/Users', signUpInputs)
 
             .then(function (response) {
                 console.log(response)
-                signUpInputs.FirstName = '';
-                signUpInputs.LastName = '';
-                signUpInputs.Username = '';
-                signUpInputs.Email = '';
-                signUpInputs.Password = '';
+                signUpInputs.firstName;
+                signUpInputs.lastName;
+                signUpInputs.username;
+                signUpInputs.email;
+                signUpInputs.startYear;
+                signUpInputs.password;
             })
             .catch(function (error) {
                 console.log(error);
@@ -102,6 +109,12 @@ const SignUp = props => {
                     />
 
                     <TextInput
+                        placeholder=" Start year"
+                        style={styles.input}
+                        onChange={startYearChangeHandler}
+                    />
+
+                    <TextInput
                         secureTextEntry={true}
                         placeholder=" Password"
                         style={styles.input}
@@ -112,7 +125,7 @@ const SignUp = props => {
                         secureTextEntry={true}
                         placeholder=" Confirm Password"
                         style={styles.input}
-                        onChange={confirmPasswordChangeHandler}
+                       // onChange={confirmPasswordChangeHandler}
                     />
 
 

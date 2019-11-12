@@ -3,32 +3,26 @@ import Axios from 'axios';
 import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground } from 'react-native';
 
 const TestScreen = props => { 
-    const [loginInputs] = useState({
-        Username: "",
-        Password: ""
-    })
 
+    var majorName = ""
 
-    //login handlers
-    const usernameChangeHandler = (event) => {
-        loginInputs.Username = event.target.value;
-    }
-    const passwordChangeHandler = (event) => {
-        loginInputs.Password = event.target.value;
+    const majorNameChangeHandler = (event) => {
+        majorName = event.nativeEvent.text;
     }
 
 
-    const testCreateUser = () => {
-        Axios.get('http://localhost:50854/Users')
+    const createMajor = () => {
+        const url = 'https://68-ku6.anonymous.degreeprogresstracker.exp.direct:80/Majors';
+        Axios.post(url, majorName)
 
-            .then(res => {
-                const userFirstName = res.data.FirstName;
-                console.log(userFirstName);
+            .then(function (response) {
+                 console.log(response.data)
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error)
             });
     }
+    
 
     return (
 
@@ -51,28 +45,17 @@ const TestScreen = props => {
 
                 <View style={styles.inputContainer}>
                     <TextInput
-                        placeholder=" Test box"
-                        onChange={usernameChangeHandler}
-                        style={styles.input}
-                    />
-
-                    <TextInput
-                        placeholder=" Password"
-                        secureTextEntry={true}
-                        onChange={passwordChangeHandler}
+                        placeholder=" Major name goes here"
+                        onChange={majorNameChangeHandler}
                         style={styles.input}
                     />
                 </View>
 
                 <View style={styles.buttonContainer}>
-
-                    <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' /></TouchableOpacity></View>
-
-                    <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
-                        props.navigation.navigate({ routeName: 'SignUp' });
+                    <View style={styles.button}><TouchableOpacity><Button title="Add Major" color='grey' onPress={() => {
+                        createMajor();
                     }} />
                     </TouchableOpacity></View>
-
                 </View>
 
             </View>

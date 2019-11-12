@@ -33,7 +33,10 @@ const WelcomeScreen = props => {
                     }} />
                     </TouchableOpacity></View>
 
-
+                    <View style={styles.button}><TouchableOpacity><Button title="Go to test screen" color='grey' onPress={() => {
+                        props.navigation.navigate({ routeName: 'TestScreen' });
+                    }} />
+                    </TouchableOpacity></View>
 
                 </View>
 
