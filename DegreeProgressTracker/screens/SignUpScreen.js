@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderWidth: 1,
         alignItems: 'center',
+        backgroundColor: 'white',
     },
     button: {
         width: '80%',

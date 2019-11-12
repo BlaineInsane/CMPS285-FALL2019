@@ -23,7 +23,7 @@ const CMPSCourses = props => {
                 <Text style={styles.title}>CMPS Courses</Text>
             </View>
 
-            <ScrollView width={'100%'}>
+            <ScrollView width={'100%'} >
 
                 <View style={styles.itemContainer}>
 
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 35,
         textAlign: "center",
-        color: 'black',
+        color: 'white',
         paddingTop: 60,
         //fontFamily: 'Helvetica',
     },

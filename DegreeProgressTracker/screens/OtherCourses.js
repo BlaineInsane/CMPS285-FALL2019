@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 35,
         textAlign: "center",
-        color: 'black',
+        color: 'white',
         paddingTop: 60,
         //fontFamily: 'Helvetica',
     },

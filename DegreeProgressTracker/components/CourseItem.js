@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const CourseItem = props => {
 
@@ -7,7 +8,8 @@ const CourseItem = props => {
 
         <TouchableOpacity onPress={props.nav}>
             <View style={styles.container}>
-                <Text style={styles.text}>{props.title}</Text>
+                <View paddingTop={15}><Text style={styles.text}>{props.title}</Text></View>
+                <View><MaterialCommunityIcons name="plus-box-outline" size={32} color="white"/></View>
             </View>
         </TouchableOpacity>
 
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: 'grey',
         paddingLeft: 5,
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.34,
         shadowRadius: 6.27,
         elevation: 10,
+        flexDirection: "row",
     },
     text: {
         color: 'white',

@@ -93,7 +93,8 @@ const Login = props => { //declaration of method
                 <View style={styles.buttonContainer}>
 
                     <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
-                        UserLogin()
+                        props.navigation.navigate({ routeName: 'CourseCategories' });
+                        //UserLogin()
                     }} /></TouchableOpacity></View>
 
                     <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
@@ -171,6 +172,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderWidth: 1,
         alignItems: 'center',
+        backgroundColor: 'white',
     },
     inputContainer: {
         paddingTop: 150,
