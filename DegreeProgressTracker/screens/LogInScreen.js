@@ -27,7 +27,7 @@ import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackg
 //    }
 
 //initial state login field
-const Login = props => { //declaration of method
+const LogIn = props => { //declaration of method
     const [loginInputs] = useState({
         Username: "",
         Password: ""
@@ -110,7 +110,7 @@ const Login = props => { //declaration of method
 
 };
 
-export default Login;
+export default LogIn;
 
 /*const LogIn = props => {
 

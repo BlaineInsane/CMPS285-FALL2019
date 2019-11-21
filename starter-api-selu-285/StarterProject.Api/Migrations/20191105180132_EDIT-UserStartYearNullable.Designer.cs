@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StarterProject.Api.Data;
 
 namespace StarterProject.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20191105180132_EDIT-UserStartYearNullable")]
+    partial class EDITUserStartYearNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,7 +99,7 @@ namespace StarterProject.Api.Migrations
 
                     b.Property<string>("FirstName");
 
-                    b.Property<float?>("GPA");
+                    b.Property<float>("GPA");
 
                     b.Property<string>("LastName");
 
@@ -121,9 +123,10 @@ namespace StarterProject.Api.Migrations
                             Id = 1,
                             Email = "admin@admin.com",
                             FirstName = "Seeded-Admin-FirstName",
+                            GPA = 0f,
                             LastName = "Seeded-Admin-LastName",
-                            PasswordHash = new byte[] { 230, 49, 232, 63, 92, 52, 174, 88, 191, 240, 127, 180, 86, 149, 201, 1, 44, 21, 9, 56 },
-                            PasswordSalt = new byte[] { 130, 140, 95, 163, 65, 80, 43, 81, 49, 40, 81, 54, 96, 111, 150, 27 },
+                            PasswordHash = new byte[] { 20, 134, 9, 197, 9, 18, 187, 237, 31, 22, 228, 105, 84, 71, 150, 67, 240, 35, 179, 20 },
+                            PasswordSalt = new byte[] { 172, 5, 72, 188, 162, 240, 203, 31, 153, 83, 30, 72, 172, 150, 86, 48 },
                             Role = "Admin",
                             StartYear = 2017,
                             Username = "admin"

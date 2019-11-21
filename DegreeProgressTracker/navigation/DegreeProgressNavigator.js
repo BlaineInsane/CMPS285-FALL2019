@@ -13,6 +13,8 @@ import ElectiveCourses from '../screens/ElectiveCourses';
 import OtherCourses from '../screens/OtherCourses';
 import ProgressScreen from '../screens/ProgressScreen';
 
+import TestScreen from '../screens/TestScreen';
+
 const DegreeProgressNavigator = createStackNavigator({
     Welcome: {
         screen: WelcomeScreen,
@@ -88,6 +90,13 @@ const DegreeProgressNavigator = createStackNavigator({
         screen: ProgressScreen,
         navigationOptions: {
             title: 'Progress Screen',
+            header: null
+        },
+    },
+    TestScreen: {
+        screen: TestScreen,
+        navigationOptions: {
+            title: 'Test Screen',
             header: null
         },
     },
