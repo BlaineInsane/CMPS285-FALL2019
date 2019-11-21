@@ -48,6 +48,11 @@ namespace StarterProject.Api.Data
 
             // End of relationships 
 
+            // Allow Null values
+            modelBuilder.Entity<User>()
+                .Property(x => x.GPA)
+                .IsRequired(false);
+
             var passwordHasher = new PasswordHash("clearview");
             modelBuilder.Entity<User>().HasData(
                 new User

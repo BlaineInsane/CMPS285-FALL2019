@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackground } from 'react-native';
+import AppSettings from "../AppSettings"
 
 const TestScreen = props => { 
 
-    var majorName = ""
+    var [MajorName] = useState({
+        majorName: "",
+    })
 
     const majorNameChangeHandler = (event) => {
-        majorName = event.nativeEvent.text;
+        MajorName.majorName = event.nativeEvent.text;
     }
 
 
     const createMajor = () => {
-        const url = 'https://68-ku6.anonymous.degreeprogresstracker.exp.direct:80/Majors';
-        Axios.post(url, majorName)
+        const url = `${AppSettings.baseUrl}/Majors`;
+
+        Axios.post(url, MajorName)
 
             .then(function (response) {
                  console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error)
+                console.log(error.response.data)
+                console.log(error.response.headers)
             });
     }
     

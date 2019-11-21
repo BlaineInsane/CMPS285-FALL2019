@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, TextInput, ImageBackground, KeyboardAvoidingView } from 'react-native';
 import Axios from 'axios';
+import AppSettings from "../AppSettings"
 
 // inital state of sign up fields
 const SignUp = props => {
@@ -41,11 +42,12 @@ const SignUp = props => {
 
     const createUserAndNavigate = () => {
         createUser();
-        props.navigation.navigate({ routeName: 'TestScreen' });
+        props.navigation.navigate({ routeName: 'CourseCategories' });
     }
 
     const createUser = () => {
-        Axios.post('http://192.168.1.120:50854/Users', signUpInputs)
+        const url = `${AppSettings.baseUrl}/Users`;
+        Axios.post(url, signUpInputs)
 
             .then(function (response) {
                 console.log(response)
