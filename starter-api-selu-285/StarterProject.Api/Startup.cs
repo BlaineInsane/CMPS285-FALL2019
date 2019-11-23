@@ -13,6 +13,7 @@ using StarterProject.Api.Features.Classes;
 using StarterProject.Api.Features.ClassesConcentrations;
 using StarterProject.Api.Features.Concentrations;
 using StarterProject.Api.Features.Majors;
+using StarterProject.Api.Features.UsersClasses;
 using StarterProject.Api.Features.Users;
 using StarterProject.Api.Helpers;
 using StarterProject.Api.Infrastructure;
@@ -90,6 +91,7 @@ namespace StarterProject.Api
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserClassRepository, UserClassRepository>();
             services.AddScoped<IMajorRepository, MajorRepository>();
             services.AddScoped<IConcentrationRepository, ConcentrationRepository>();
             services.AddScoped<IClassConcentrationRepository, ClassConcentrationRepository>();
