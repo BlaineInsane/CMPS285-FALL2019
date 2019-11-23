@@ -96,10 +96,12 @@ const LogIn = props => { //declaration of method
                         UserLogin()
                     }} /></TouchableOpacity></View>
 
+                {/*
                     <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
                         props.navigation.navigate({ routeName: 'SignUp' });
                     }} />
                     </TouchableOpacity></View>
+                */}
 
                 </View>
 
@@ -171,6 +173,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderWidth: 1,
         alignItems: 'center',
+        backgroundColor: 'white'
     },
     inputContainer: {
         paddingTop: 150,
@@ -186,5 +189,6 @@ const styles = StyleSheet.create({
     button: {
         width: '80%',
         paddingBottom: 15,
+        marginTop: 15
     }
 });

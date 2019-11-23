@@ -137,9 +137,11 @@ const SignUp = props => {
                         }}
                         /></TouchableOpacity></View>
 
+                {/*
                     <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
                         props.navigation.navigate({ routeName: 'LogIn' });
                     }} /></TouchableOpacity></View>
+                */}
 
                     <View style={{ height: 145 }} />
                 </KeyboardAvoidingView>
@@ -176,10 +178,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderWidth: 1,
         alignItems: 'center',
+        backgroundColor: 'white'
     },
     button: {
         width: '80%',
         paddingBottom: 15,
+        marginTop: 15
     }
 });
 
