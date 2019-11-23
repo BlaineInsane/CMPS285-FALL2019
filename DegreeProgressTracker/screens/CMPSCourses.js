@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
 import CourseItem from '../components/CourseItem';
+import ClassModal from '../components/ClassModal';
 
 const CMPSCourses = props => {
+{/*
+    var [modalOptions] = useState({
+        isModalVisible: false,
+    })
+    
+    const changeModalOptions = (event) => {
+        modalOptions.isModalVisible = !modalOptions.isModalVisible;
+    };
+*/}
 
     return (
 
@@ -17,11 +27,13 @@ const CMPSCourses = props => {
             source={require('../assets/Background.png')}
         >
         
-        <View style={styles.container}>
+        <View style={styles.container}>  
 
             <View>
                 <Text style={styles.title}>CMPS Courses</Text>
             </View>
+
+            <ClassModal />
 
             <ScrollView width={'100%'}>
 
