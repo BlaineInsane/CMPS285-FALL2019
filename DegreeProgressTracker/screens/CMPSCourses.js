@@ -14,6 +14,14 @@ const CMPSCourses = props => {
     };
 */}
 
+    var [modalOptions] = useState({
+        isModalVisible: false,
+    })
+    
+    const changeModalOptions = (event) => {
+        modalOptions.isModalVisible = !modalOptions.isModalVisible;
+    };
+
     return (
 
         <ImageBackground
@@ -39,7 +47,11 @@ const CMPSCourses = props => {
 
                 <View style={styles.itemContainer}>
 
-                    <View style={styles.item}><CourseItem title={'CMPS 161'} /></View>
+                    <View style={styles.item} 
+                        onPress={() => {
+                            changeModalOptions();
+                        }}
+                    ><CourseItem title={'CMPS 161'} /></View>
 
                     <View style={styles.item}><CourseItem title={'CMPS 257'} /></View>
 
