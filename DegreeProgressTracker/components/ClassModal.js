@@ -4,7 +4,7 @@ import Modal from 'react-native-modal';
 
 export default class ClassModal extends Component {
     state = {
-        isModalVisible: true
+        isModalVisible: false
     };
   
     toggleModal = () => {
@@ -13,21 +13,33 @@ export default class ClassModal extends Component {
   
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View>
                 <Button title="Show modal" onPress={this.toggleModal} />
                     <Modal 
+                        backdropOpacity = {0.70}
                         isVisible={this.state.isModalVisible}
                         onBackdropPress={() => this.setState({ isModalVisible: false })}
+                        onBackButtonPress={() => this.setState({ isModalVisible: false })}
                     >
-                        <View style={{ flex: 1 }}>
-                            <Text>Hello!</Text>
-                            <Button title="Hide modal" onPress={this.toggleModal} />
+                        <View style = {styles.modalContainer}>
+                            <Text>WE IN THE MODAL</Text>
                         </View>
                     </Modal>
             </View>
       );
     }
 }
+
+const styles = StyleSheet.create({
+    
+    modalContainer: {
+        borderRadius: 5,
+        backgroundColor: 'gray',
+        height: '65%',
+        width: '90%',
+        alignSelf: 'center'
+    }
+})
 
 {/*
 const ClassModal = props => (
