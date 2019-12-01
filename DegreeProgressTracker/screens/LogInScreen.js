@@ -27,7 +27,7 @@ import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View, ImageBackg
 //    }
 
 //initial state login field
-const Login = props => { //declaration of method
+const LogIn = props => { //declaration of method
     const [loginInputs] = useState({
         Username: "",
         Password: ""
@@ -93,14 +93,15 @@ const Login = props => { //declaration of method
                 <View style={styles.buttonContainer}>
 
                     <View style={styles.button}><TouchableOpacity><Button title="Log In" color='grey' onPress={() => {
-                        props.navigation.navigate({ routeName: 'CourseCategories' });
-                        //UserLogin()
+                        UserLogin()
                     }} /></TouchableOpacity></View>
 
+                {/*
                     <View style={styles.button}><TouchableOpacity><Button title="Sign Up" color='grey' onPress={() => {
                         props.navigation.navigate({ routeName: 'SignUp' });
                     }} />
                     </TouchableOpacity></View>
+                */}
 
                 </View>
 
@@ -111,7 +112,7 @@ const Login = props => { //declaration of method
 
 };
 
-export default Login;
+export default LogIn;
 
 /*const LogIn = props => {
 
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderWidth: 1,
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     inputContainer: {
         paddingTop: 150,
@@ -188,5 +189,6 @@ const styles = StyleSheet.create({
     button: {
         width: '80%',
         paddingBottom: 15,
+        marginTop: 15
     }
 });

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using StarterProject.Api.Features.Concentrations;
 using StarterProject.Api.Features.Concentrations.Dtos;
@@ -10,7 +9,7 @@ using StarterProject.Api.Features.Concentrations.Dtos;
 
 namespace StarterProject.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiController]
     public class ConcentrationsController : ControllerBase
     {
         private readonly IConcentrationRepository _concentrationRepository;
@@ -21,22 +20,28 @@ namespace StarterProject.Api.Controllers
             _concentrationRepository = concentrationRepostiory;
         }
 
+       
         // GET: api/<controller>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("[controller]/{concentrationId:int}")]
+        [ProducesResponseType(typeof(ConcentrationGetDto), (int)HttpStatusCode.OK)]
+        public IActionResult Get(int concentrationId)
         {
-            return new string[] { "value1", "value2" };
+            var concentration = _concentrationRepository.GetConcentration(concentrationId);
+            return Ok(concentration);
         }
 
         // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("[controller]")]
+        [ProducesResponseType(typeof(List<ConcentrationGetDto>), (int)HttpStatusCode.OK)]
+        public IActionResult GetAll()
         {
-            return "value";
+            var concentration = _concentrationRepository.GetAllConcentrations();
+            return Ok(concentration);
         }
 
         // POST api/<controller>
-        [HttpPost]
+        [HttpPost("[controller]")]
+        [ProducesResponseType(typeof(ConcentrationGetDto), (int)HttpStatusCode.Created)]
         public IActionResult Post([FromBody] ConcentrationCreateDto concentrationCreateDto)
         {
             var concentration = _concentrationRepository.CreateConcentration(concentrationCreateDto);
@@ -44,15 +49,21 @@ namespace StarterProject.Api.Controllers
         }
 
         // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        [HttpPut("[controller]/{concentrationId:int}")]
+        [ProducesResponseType(typeof(ConcentrationGetDto), (int)HttpStatusCode.OK)]
+        public IActionResult Put(int concentrationId, [FromBody] ConcentrationEditDto concentrationEditDto)
         {
+            var concentration = _concentrationRepository.EditConcentration(concentrationId, concentrationEditDto);
+            return Ok(concentration);
         }
 
         // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("[controller]/{concentrationId:int}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        public IActionResult Delete(int concentrationId)
         {
+            _concentrationRepository.DeleteConcentration(concentrationId);
+            return Ok();
         }
     }
 }

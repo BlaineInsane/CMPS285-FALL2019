@@ -8,7 +8,7 @@ namespace StarterProject.Api.Features.Users.Dtos
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
-        public int StartYear { get; set; }
+        public int? StartYear { get; set; }
         public string Password { get; set; }
     }
 
@@ -17,13 +17,16 @@ namespace StarterProject.Api.Features.Users.Dtos
         public UserCreateDtoValidator()
         {
             RuleFor(x => x.FirstName)
-                .NotEmpty();
+                .NotEmpty()
+                .Matches(@"^[\w'\-\s]*$"); // only accept "alphanumeric ' -";
 
             RuleFor(x => x.LastName)
-                .NotEmpty();
+                .NotEmpty()
+                .Matches(@"^[\w'\-\s]*$"); // only accept "alphanumeric ' -";
 
             RuleFor(x => x.Username)
-                .NotEmpty();
+                .NotEmpty()
+                .Matches(@"^[\w'\-_\s]*$"); // only accept "alphanumeric ' - _";
 
             RuleFor(x => x.Email)
                 .NotEmpty()

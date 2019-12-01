@@ -1,5 +1,8 @@
 ﻿using StarterProject.Api.Data;
 using StarterProject.Api.Features.ClassesConcentrations.Dtos;
+using System.Collections.Generic;
+using System.Linq;
+using StarterProject.Api.Security;
 using StarterProject.Api.Features.Users;
 
 namespace StarterProject.Api.Features.ClassesConcentrations
@@ -7,6 +10,8 @@ namespace StarterProject.Api.Features.ClassesConcentrations
     public interface IClassConcentrationRepository
     {
         ClassConcentrationGetDto CreateClassConcentration(ClassConcentrationCreateDto classConcentrationCreateDto);
+        ClassConcentrationGetDto GetClassConcentration(int classConcentrationId);
+        List<ClassConcentrationGetDto> GetAllClassesConcentrations();
     }
     
     public class ClassConcentrationRepository : IClassConcentrationRepository
@@ -37,6 +42,31 @@ namespace StarterProject.Api.Features.ClassesConcentrations
             };
 
             return classConcentrationGetDto;
+        }
+        public ClassConcentrationGetDto GetClassConcentration(int classConcentrationId)
+        {
+            return _context
+                .Set<ClassConcentration>()
+                .Select(x => new ClassConcentrationGetDto
+                {
+                    Id = x.Id,
+                    ClassId = x.ClassId,
+                    ConcentrationId = x.ConcentrationId
+                })
+                .FirstOrDefault(x => x.Id == classConcentrationId);
+        }
+
+        public List<ClassConcentrationGetDto> GetAllClassesConcentrations()
+        {
+            return _context
+                .Set<ClassConcentration>()
+                .Select(x => new ClassConcentrationGetDto
+                {
+                    Id = x.Id,
+                    ClassId = x.ClassId,
+                    ConcentrationId = x.ConcentrationId
+                })
+                .ToList();
         }
     }
 }

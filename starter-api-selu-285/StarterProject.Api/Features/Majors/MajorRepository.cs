@@ -91,6 +91,7 @@ namespace StarterProject.Api.Features.Majors
             var major = _context.Set<Major>().Find(majorId);
             _context.Set<Major>().Remove(major);
             _context.SaveChanges();
+    
         }
     }
 }

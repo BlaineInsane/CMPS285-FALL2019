@@ -33,8 +33,6 @@ const WelcomeScreen = props => {
                     }} />
                     </TouchableOpacity></View>
 
-
-
                 </View>
 
             </View>
