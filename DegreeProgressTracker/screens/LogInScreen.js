@@ -78,12 +78,14 @@ const LogIn = props => { //declaration of method
                 <View style={styles.inputContainer}>
                     <TextInput
                         placeholder=" Username"
+                        placeholderTextColor= "black"
                         onChange={usernameChangeHandler}
                         style={styles.input}
                     />
 
                     <TextInput
                         placeholder=" Password"
+                        placeholderTextColor= "black"
                         secureTextEntry={true}
                         onChange={passwordChangeHandler}
                         style={styles.input}
