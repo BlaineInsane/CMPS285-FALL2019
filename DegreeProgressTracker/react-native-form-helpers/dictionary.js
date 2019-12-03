@@ -155,7 +155,7 @@ export const validationDictionary = {
   username: {
     presence: {
       allowEmpty: false,
-      message: "^Username can not be empty"
+      message: "^This is required"
     },
     length: {
       minimum: 4,

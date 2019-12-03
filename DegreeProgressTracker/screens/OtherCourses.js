@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground } from 'react-native';
-import CourseItem from '../components/CourseItem';
+import CourseItemComponent from '../components/CourseItemComponent';
 
 const OtherCourses = props => {
 
@@ -25,17 +25,17 @@ const OtherCourses = props => {
 
                 <View style={styles.itemContainer}>
 
-                    <View style={styles.item}><CourseItem title={'art, dnce, mus, or thea'} /></View>
+                    <View style={styles.item}><CourseItemComponent title={'art, dnce, mus, or thea'} /></View>
 
-                    <View style={styles.item}><CourseItem title={'History Elective'} /></View>
+                    <View style={styles.item}><CourseItemComponent title={'History Elective'} /></View>
 
-                    <View style={styles.item}><CourseItem title={'COMM 211'} /></View>
+                    <View style={styles.item}><CourseItemComponent title={'COMM 211'} /></View>
 
-                    <View style={styles.item}><CourseItem title={'econ 201 or econ 202'} /></View>
+                    <View style={styles.item}><CourseItemComponent title={'econ 201 or econ 202'} /></View>
 
-                    <View style={styles.item}><CourseItem title={'social science'} /></View>
+                    <View style={styles.item}><CourseItemComponent title={'social science'} /></View>
 
-                    <View style={styles.item}><CourseItem title={'se 101 or free elective'} /></View>
+                    <View style={styles.item}><CourseItemComponent title={'se 101 or free elective'} /></View>
 
                 </View>
 

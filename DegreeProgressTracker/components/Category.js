@@ -2,14 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const CourseItem = props => {
+const Category = props => {
 
     return (
 
         <TouchableOpacity onPress={props.nav}>
             <View style={styles.container}>
-                <View paddingTop={15}><Text style={styles.text}>{props.title}</Text></View>
-                <View><MaterialCommunityIcons name="plus-box-outline" size={32} color="white"/></View>
+                <View paddingTop={10}><Text style={styles.text}>{props.title}</Text></View>
+                <View paddingTop={3} paddingRight={5}><MaterialCommunityIcons name="arrow-right-bold-box-outline" size={32} color="white" /></View>
             </View>
         </TouchableOpacity>
 
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default CourseItem;
+export default Category;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground } from 'react-native';
-import CourseItem from '../components/CourseItem';
+import CourseItemComponent from '../components/CourseItemComponent';
 
 const EnglishCourses = props => {
 
@@ -16,39 +16,39 @@ const EnglishCourses = props => {
             }}
             source={require('../assets/Background.png')}
         >
-        
-        <View style={styles.container}>
 
-            <View>
-                <Text style={styles.title}>English Courses</Text>
-            </View>
+            <View style={styles.container}>
 
-            <View style={styles.itemContainer}>
-
-                <View style={styles.item}><CourseItem title={'engl 101'} /></View>
-
-                <View style={styles.item}><CourseItem title={'engl 102'} /></View>
-
-                <View style={styles.item}><CourseItem title={'engl 230, 231, or 232'} /></View>
-
-                <View style={styles.item}><CourseItem title={'engl 322'} /></View>
-
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <View style={styles.item}>
-                    <TouchableOpacity>
-                        <Button title="Select and Return to Course Categories" color='black' onPress={() => {
-                            props.navigation.navigate({ routeName: 'CourseCategories' });
-                        }} />
-                    </TouchableOpacity>
+                <View>
+                    <Text style={styles.title}>English Courses</Text>
                 </View>
+
+                <View style={styles.itemContainer}>
+
+                    <View style={styles.item}><CourseItemComponent title={'engl 101'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'engl 102'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'engl 230, 231, or 232'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'engl 322'} /></View>
+
+                </View>
+
+                <View style={styles.buttonContainer}>
+                    <View style={styles.item}>
+                        <TouchableOpacity>
+                            <Button title="Select and Return to Course Categories" color='black' onPress={() => {
+                                props.navigation.navigate({ routeName: 'CourseCategories' });
+                            }} />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+
+
+
             </View>
-
-
-
-
-        </View>
 
         </ImageBackground>
 

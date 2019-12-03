@@ -102,6 +102,8 @@ export default class SignUp extends Component {
 
         const createUser = () => {
             const url = `${AppSettings.baseUrl}/Users`;
+            const { inputs } = this.state;
+
             Axios.post(url, inputs)
 
                 .then(function (response) {
@@ -120,11 +122,11 @@ export default class SignUp extends Component {
 
         const checkPasswords = props => {
             const { inputs } = this.state;
-    
+
             if (inputs.password.value == inputs.confirm_password.value) {
                 createUserAndNavigate();
             }
-            
+
         }
 
         if (firstInvalidCoordinate !== null) {
@@ -137,17 +139,8 @@ export default class SignUp extends Component {
         }
 
         checkPasswords();
-        return <Text style={styles.error}>^Passwords must match</Text>;
-    }
 
-    renderError(id) {
-        const { inputs } = this.state;
-        if (inputs[id].errorLabel) {
-            return <Text style={styles.error}>{inputs[id].errorLabel}</Text>;
-        }
-        return null;
     }
-
 
     renderError(id) {
         const { inputs } = this.state;

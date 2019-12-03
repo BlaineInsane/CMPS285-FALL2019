@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground } from 'react-native';
-import CourseItem from '../components/CourseItem';
+import CourseItemComponent from '../components/CourseItemComponent';
 
 const NaturalScienceCourses = props => {
 
@@ -17,44 +17,44 @@ const NaturalScienceCourses = props => {
             source={require('../assets/Background.png')}
         >
 
-        <View style={styles.container}>
+            <View style={styles.container}>
 
-            <View>
-                <Text style={styles.title}>Natural Science Courses</Text>
-            </View>
-
-            <View style={styles.itemContainer}>
-
-                <View style={styles.item}><CourseItem title={'Science Sequence I Lecture'} /></View>
-
-                <View style={styles.item}><CourseItem title={'Science Sequence I Lab'} /></View>
-
-                <View style={styles.item}><CourseItem title={'Science Sequence II Lecture'} /></View>
-
-                <View style={styles.item}><CourseItem title={'Science Sequence II Lab'} /></View>
-
-                <View style={styles.item}><CourseItem title={'Science Course Lecture'} /></View>
-
-                <View style={styles.item}><CourseItem title={'Science Course Lab'} /></View>
-
-                <View style={styles.item}><CourseItem title={'Science Course Lecture'} /></View>
-
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <View style={styles.item}>
-                    <TouchableOpacity>
-                        <Button title="Select and Return to Course Categories" color='black' onPress={() => {
-                            props.navigation.navigate({ routeName: 'CourseCategories' });
-                        }} />
-                    </TouchableOpacity>
+                <View>
+                    <Text style={styles.title}>Natural Science Courses</Text>
                 </View>
+
+                <View style={styles.itemContainer}>
+
+                    <View style={styles.item}><CourseItemComponent title={'Science Sequence I Lecture'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'Science Sequence I Lab'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'Science Sequence II Lecture'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'Science Sequence II Lab'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'Science Course Lecture'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'Science Course Lab'} /></View>
+
+                    <View style={styles.item}><CourseItemComponent title={'Science Course Lecture'} /></View>
+
+                </View>
+
+                <View style={styles.buttonContainer}>
+                    <View style={styles.item}>
+                        <TouchableOpacity>
+                            <Button title="Select and Return to Course Categories" color='black' onPress={() => {
+                                props.navigation.navigate({ routeName: 'CourseCategories' });
+                            }} />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+
+
+
             </View>
-
-
-
-
-        </View>
 
         </ImageBackground>
 

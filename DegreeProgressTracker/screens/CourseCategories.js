@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground } from 'react-native';
-import CourseItem from '../components/CourseItem';
+import Category from '../components/Category';
 
 const CourseCategories = props => {
 
@@ -25,27 +25,27 @@ const CourseCategories = props => {
 
                 <View style={styles.itemContainer}>
 
-                    <View style={styles.item}><CourseItem title={'Computer Science'} nav={() => {
+                    <View style={styles.item}><Category title={'Computer Science'} nav={() => {
                         props.navigation.navigate({ routeName: 'CMPSCourses' });
                     }} /></View>
 
-                    <View style={styles.item}><CourseItem title={'Math'} nav={() => {
+                    <View style={styles.item}><Category title={'Math'} nav={() => {
                         props.navigation.navigate({ routeName: 'MathCourses' });
                     }} /></View>
 
-                    <View style={styles.item}><CourseItem title={'Natural Science'} nav={() => {
+                    <View style={styles.item}><Category title={'Natural Science'} nav={() => {
                         props.navigation.navigate({ routeName: 'NaturalScienceCourses' });
                     }} /></View>
 
-                    <View style={styles.item}><CourseItem title={'English'} nav={() => {
+                    <View style={styles.item}><Category title={'English'} nav={() => {
                         props.navigation.navigate({ routeName: 'EnglishCourses' });
                     }} /></View>
 
-                    <View style={styles.item}><CourseItem title={'Electives'} nav={() => {
+                    <View style={styles.item}><Category title={'Electives'} nav={() => {
                         props.navigation.navigate({ routeName: 'ElectiveCourses' });
                     }} /></View>
 
-                    <View style={styles.item}><CourseItem title={'Other'} nav={() => {
+                    <View style={styles.item}><Category title={'Other'} nav={() => {
                         props.navigation.navigate({ routeName: 'OtherCourses' });
                     }} /></View>
 
@@ -55,8 +55,8 @@ const CourseCategories = props => {
                     <View style={styles.item}>
                         <TouchableOpacity>
                             <Button title="View Progress" color='black' onPress={() => {
-                        props.navigation.navigate({ routeName: 'ProgressScreen' });
-                    }} />
+                                props.navigation.navigate({ routeName: 'ProgressScreen' });
+                            }} />
                         </TouchableOpacity>
                     </View>
                 </View>

@@ -27,7 +27,7 @@ const ProgressScreen = props => {
 
                 <View style={styles.progressContainer}>
 
-                    <Text style={styles.progressTitle}>Computer Science Scientific: 50%</Text>
+                    <Text style={styles.progressTitle}>Computer Science Scientific: 87.5%</Text>
                     <ProgressBar style={{ width: '100%'}} progress={0.5} color={Colors.white} />
 
                 </View>
